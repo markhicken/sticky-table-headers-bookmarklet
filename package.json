@@ -4,7 +4,9 @@
   "description": "",
   "scripts": {
     "clean": "rm -rf ./build && mkdir build",
-    "build": "npm run clean && node ./node_modules/.bin/bookmarkletify ./make-table-headers-sticky.js -o ./build/make-table-headers-sticky.webloc && npm run open",
+    "build": "npm run clean && node ./node_modules/.bin/bookmarkletify ./make-table-headers-sticky.js -o ./build/make-table-headers-sticky.webloc && npm run decodeURI && npm run logbuild && npm run open",
+    "decodeURI": "node ./decodeuri.js ./build/make-table-headers-sticky.webloc",
+    "logbuild": "echo \"Bookmarklet contents...\" && cat ./build/make-table-headers-sticky.webloc",
     "open": "open ./build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
